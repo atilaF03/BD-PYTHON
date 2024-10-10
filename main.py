@@ -26,11 +26,16 @@ class Usuario(Base):
 Base.metadata.create_all(bind=db)
 os.system("cls||clear")
         
-usuario = Usuario("marta", "marta@gmail.com","123")
-session.add(usuario)
-session.commit()
+for i in range(1):
+    nome= input("Digite seu nome: ")
+    email = input("Digite seu e-mail: ")
+    senha= input("Digite sua senha: ")
+    os.system("cls||clear")
+    usuario = Usuario( nome= nome,email = email,senha=senha)
+    session.add(usuario)
+    session.commit()
 
 lista_usuarios = session.query(Usuario).all()
 
 for usuario in lista_usuarios:
-    print(f"{usuario.id}- {usuario.nome}-{usuario.email}")
+    print(f"{usuario.id}- {usuario.nome}-{usuario.email}-{usuario.senha}")
