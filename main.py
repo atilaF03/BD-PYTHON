@@ -1,7 +1,7 @@
 import os
 from sqlalchemy import create_engine, Column ,String,Integer
 from sqlalchemy.orm import sessionmaker, declarative_base
-
+# cria 
 db = create_engine("sqlite:///meubanco.db")
 
 Session = sessionmaker(bind = db)
