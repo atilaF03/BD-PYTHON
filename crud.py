@@ -55,10 +55,16 @@ for usuario in lista_usuarios:
     print(f"{usuario.id} - {usuario.nome} - {usuario.email}")
 
 # Deletando um usuário.
-usuario = session.query(Usuario).filter_by(email ="joao@gmail.com").first()
-session.delete(usuario)
-session.commit()
-print("\nUsuário deletado com sucesso.")
+print("\nExcluindo usuários no banco de dados.")
+email_usuario = input("\nDigite o e-mail do usuário: ")
+
+usuario = session.query(Usuario).filter_by(email = email_usuario).first()
+if usuario:
+    session.delete(usuario)
+    session.commit()
+    print("\nUsuário deletado com sucesso.")
+else: 
+    print("\nUsuário não encontrado.")
 
 # Mostrando conteúdo do banco de dados.
 print("\nListando usuários no banco de dados.")
